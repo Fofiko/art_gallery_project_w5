@@ -52,6 +52,14 @@ class Exhibit
     return Exhibit.new(results.first)
   end
 
+  def self.find_by_artist(artist_id)
+    sql = "SELECT * FROM exhibits WHERE artist_id = $1"
+    values = [@artist_id]
+    result = SqlRunner.run(sql, values)[0]
+    exhibit = Exhibit.new(result)
+    return exhibit
+  end
+
   def self.delete_all
     sql = "DELETE FROM exhibits"
     SqlRunner.run(sql)
