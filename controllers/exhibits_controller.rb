@@ -21,3 +21,10 @@ get '/exhibits/:id' do
   @exhibit = Exhibit.find(params['id'].to_i)
   erb(:"exhibits/show")
 end
+
+#create
+post '/exhibits' do
+  @exhibit = Exhibit.new(params)
+  @exhibit.save
+  redirect to '/exhibits'
+end
