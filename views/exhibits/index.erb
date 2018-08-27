@@ -1,0 +1,7 @@
+<h1>Exhibits</h1>
+
+<p>
+  <% for exhibit in @exhibits %>
+  <a href="/exhibits/<%= exhibit.id %>"><%= exhibit.title %></a>
+  <% end %>
+</p>
