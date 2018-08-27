@@ -30,6 +30,12 @@ end
 
 #edit
 get '/manager/artists/:id/edit' do
-  @artist = Artist.find( params[:id] )
+  @artist = Artist.find(params[:id])
   erb(:"artists/edit")
+end
+
+#update
+post '/artists/:id' do
+  Artist.new(params).update
+  redirect to '/artists'
 end
