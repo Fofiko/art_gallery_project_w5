@@ -1,5 +1,6 @@
-DROP TABLE artists;
 DROP TABLE exhibits;
+DROP TABLE artists;
+
 
 CREATE TABLE artists (
   id SERIAL4 PRIMARY KEY,

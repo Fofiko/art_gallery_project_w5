@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner")
+require_relative("./artist")
 
 class Exhibit
 
@@ -52,12 +53,12 @@ class Exhibit
     return Exhibit.new(results.first)
   end
 
-  def self.find_by_artist(artist_id)
-    sql = "SELECT * FROM exhibits WHERE artist_id = $1"
+  def artist()
+    sql = "SELECT * FROM artists WHERE id = $1"
     values = [@artist_id]
     result = SqlRunner.run(sql, values)[0]
-    exhibit = Exhibit.new(result)
-    return exhibit
+    artist = Artist.new(result)
+    return artist
   end
 
   def self.delete_all

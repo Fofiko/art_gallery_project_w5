@@ -2,8 +2,8 @@ require_relative("../models/artist.rb")
 require_relative("../models/exhibit.rb")
 require("pry-byebug")
 
-Artist.delete_all()
 Exhibit.delete_all()
+Artist.delete_all()
 
 artist1 = Artist.new({
   "name" => "artist1"
