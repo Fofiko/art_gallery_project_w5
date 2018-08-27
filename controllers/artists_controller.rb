@@ -27,3 +27,9 @@ post '/artists' do
   @artist.save
   redirect to("/artists")
 end
+
+#edit
+get '/manager/artists/:id/edit' do
+  @artist = Artist.find( params[:id] )
+  erb(:"artists/edit")
+end
