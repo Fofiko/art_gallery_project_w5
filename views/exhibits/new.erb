@@ -1,0 +1,16 @@
+<form action="/exhibits" method="post">
+  <label for="title-field">Title:</label>
+  <input type="text" name="title" id="title-field"/>
+  <label for="category-field">Category:</label>
+  <input type="text" name="category" id="category-field"/>
+
+  <label for="artist_id-field">
+  Select an artist:
+    <select name="artist_id" id="artist_id-field">
+      <% for artist in @artists %>
+      <option value="<%= artist.id %>"><%= artist.name %></option>
+      <% end %>
+    </select>
+
+  <input type="submit" value="Add Exhibit">
+</form>
