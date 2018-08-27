@@ -1,5 +1,6 @@
 require_relative("../db/sql_runner")
 require_relative("./exhibit")
+require("pry-byebug")
 
 class Artist
 
@@ -56,6 +57,8 @@ class Artist
     results = SqlRunner.run(sql, values)
     exhibits = results.map { |exhibit| Exhibit.new(exhibit) }
     return exhibits
+    binding.pry
+    nil
   end
 
 

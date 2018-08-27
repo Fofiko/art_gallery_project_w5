@@ -41,8 +41,13 @@ post '/artists/:id' do
 end
 
 #delete
+# if the gallery has exhibits by an artist, that artist cannot be deleted - redirect to their exhibits page
+# if there are no exhibits by this artist, allow to delete artist - redirect to artists page after deletion
 post '/artists/:id/delete' do
   artist = Artist.find(params[:id])
+  if artist.exhibits.length == 0
   artist.delete()
+  else redirect to '/'
+  end
   redirect to '/artists'
 end
