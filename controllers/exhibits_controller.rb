@@ -41,3 +41,10 @@ post '/exhibits/:id' do
   Exhibit.new(params).update
   redirect to '/exhibits'
 end
+
+#delete
+post '/exhibits/:id/delete' do
+  exhibit = Exhibit.find(params[:id])
+  exhibit.delete()
+  redirect to '/exhibits'
+end
