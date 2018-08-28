@@ -1,5 +1,6 @@
 require("sinatra")
 require("sinatra/contrib/all")
+require('pry-byebug')
 require_relative("../models/exhibit.rb")
 require_relative("../models/artist.rb")
 also_reload("../models/*")
@@ -15,6 +16,13 @@ get "/exhibits/new" do
   @artists = Artist.all()
   erb(:"exhibits/new")
 end
+
+#filter by category
+get "/exhibits/category" do
+  @exhibits = Exhibit.find_by_category(params[:category])
+  erb(:"exhibits/index")
+end
+
 
 #show
 get "/exhibits/:id" do

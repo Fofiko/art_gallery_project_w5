@@ -8,11 +8,13 @@
 </p>
 
 
-<p>Search by category INSERT FORM
 
-</p>
-
-
-<p>Search by artist INSERT FORM
-
-</p>
+  <form class="filter_by" action="/exhibits/category" method="get">
+    <label for="category-field">Filter by category</label>
+    <select name="category">
+      <% for exhibit in @exhibits %>
+      <option value="<%= exhibit.category %>"><%= exhibit.category %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Go"/>
+  </form>
