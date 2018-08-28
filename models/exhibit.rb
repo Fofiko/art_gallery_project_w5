@@ -65,8 +65,9 @@ class Exhibit
     sql = "SELECT * FROM exhibits
     WHERE category = $1"
     values = [category]
-    results = SqlRunner.run(sql, values)
-    return Exhibit.new(results.first)
+    exhibits = SqlRunner.run(sql, values)
+    result = exhibits.map { |exhibit| Exhibit.new(exhibit) }
+    return result
   end
 
   def self.delete_all

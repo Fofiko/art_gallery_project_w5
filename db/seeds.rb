@@ -19,13 +19,13 @@ artist2.save()
 
 exhibit1 = Exhibit.new({
   "title" => "exhibit1",
-  "category" => "cat",
+  "category" => "cat1",
   "artist_id" => artist1.id
   })
 
 exhibit2 = Exhibit.new({
   "title" => "exhibit2",
-  "category" => "cat",
+  "category" => "cat2",
   "artist_id" => artist2.id
   })
 
