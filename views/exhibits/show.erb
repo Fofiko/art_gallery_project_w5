@@ -2,3 +2,9 @@
 
 
 <h3>by <%= @exhibit.artist.name %></h3>
+
+<p><a href="/exhibits/<%= @exhibit.id %>/edit">Edit Exhibit</a></p>
+
+<form method="post" action="/exhibits/<%= @exhibit.id %>/delete">
+  <input type="submit" value="Delete Exhibit"/>
+</form>

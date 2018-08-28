@@ -28,3 +28,10 @@ post '/exhibits' do
   @exhibit.save
   redirect to '/exhibits'
 end
+
+#edit
+get '/exhibits/:id/edit' do
+  @artists = Artist.all()
+  @exhibit = Exhibit.find(params[:id])
+  erb(:"exhibits/edit")
+end
