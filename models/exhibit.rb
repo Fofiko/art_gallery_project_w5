@@ -38,6 +38,14 @@ class Exhibit
     SqlRunner.run(sql, values)
   end
 
+  def artist()
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@artist_id]
+    result = SqlRunner.run(sql, values)[0]
+    artist = Artist.new(result)
+    return artist
+  end
+
   def self.all()
     sql = "SELECT * FROM exhibits"
     exhibits = SqlRunner.run(sql)
@@ -53,12 +61,12 @@ class Exhibit
     return Exhibit.new(results.first)
   end
 
-  def artist()
-    sql = "SELECT * FROM artists WHERE id = $1"
-    values = [@artist_id]
-    result = SqlRunner.run(sql, values)[0]
-    artist = Artist.new(result)
-    return artist
+  def self.find_by_category(category)
+    sql = "SELECT * FROM exhibits
+    WHERE category = $1"
+    values = [category]
+    results = SqlRunner.run(sql, values)
+    return Exhibit.new(results.first)
   end
 
   def self.delete_all

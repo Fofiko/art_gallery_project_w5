@@ -5,46 +5,47 @@ require_relative("../models/artist.rb")
 also_reload("../models/*")
 
 #index
-get '/exhibits' do
+get "/exhibits" do
   @exhibits = Exhibit.all()
   erb (:"exhibits/index")
 end
 
 #new
-get '/exhibits/new' do
+get "/exhibits/new" do
   @artists = Artist.all()
   erb(:"exhibits/new")
 end
 
 #show
-get '/exhibits/:id' do
-  @exhibit = Exhibit.find(params['id'].to_i)
+get "/exhibits/:id" do
+  @exhibit = Exhibit.find(params["id"].to_i)
   erb(:"exhibits/show")
 end
 
 #create
-post '/exhibits' do
+post "/exhibits" do
   @exhibit = Exhibit.new(params)
   @exhibit.save
-  redirect to '/exhibits'
+  redirect to "/exhibits"
 end
 
 #edit
-get '/exhibits/:id/edit' do
+get "/exhibits/:id/edit" do
   @artists = Artist.all()
   @exhibit = Exhibit.find(params[:id])
   erb(:"exhibits/edit")
 end
 
 #update
-post '/exhibits/:id' do
-  Exhibit.new(params).update
-  redirect to '/exhibits'
+post "/exhibits/:id" do
+  exhibit = Exhibit.new(params)
+  exhibit.update
+  redirect to "/exhibits/#{exhibit.id}"
 end
 
 #delete
-post '/exhibits/:id/delete' do
+post "/exhibits/:id/delete" do
   exhibit = Exhibit.find(params[:id])
   exhibit.delete()
-  redirect to '/exhibits'
+  redirect to "/exhibits"
 end
