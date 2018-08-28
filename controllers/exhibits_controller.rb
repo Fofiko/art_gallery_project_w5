@@ -35,3 +35,9 @@ get '/exhibits/:id/edit' do
   @exhibit = Exhibit.find(params[:id])
   erb(:"exhibits/edit")
 end
+
+#update
+post '/exhibits/:id' do
+  Exhibit.new(params).update
+  redirect to '/exhibits'
+end
