@@ -12,10 +12,9 @@ nav {
   margin: 0px;
 }
 
-/* ol {
-  display: inline-flex;
-
-} */
+ol {
+  list-style-type: none;
+}
 
 footer {
   padding-top: 60px;
