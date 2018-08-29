@@ -5,10 +5,16 @@ require_relative("../models/exhibit.rb")
 require_relative("../models/artist.rb")
 also_reload("../models/*")
 
-#index
+#index for visitor
 get "/exhibits" do
   @exhibits = Exhibit.all()
   erb (:"exhibits/index")
+end
+
+#index for manager
+get "/exhibits/manage" do
+  @exhibits = Exhibit.all()
+  erb (:"exhibits/manage_index")
 end
 
 #new
@@ -23,10 +29,16 @@ get "/exhibits/category" do
   erb(:"exhibits/filter")
 end
 
-#show
+#show for visitor
 get "/exhibits/:id" do
   @exhibit = Exhibit.find(params["id"].to_i)
   erb(:"exhibits/show")
+end
+
+#show for manager
+get "/exhibits/manage/:id" do
+  @exhibit = Exhibit.find(params["id"].to_i)
+  erb(:"exhibits/manage_show")
 end
 
 #create
@@ -36,22 +48,22 @@ post "/exhibits" do
   redirect to "/exhibits"
 end
 
-#edit
-get "/exhibits/:id/edit" do
+#edit for manager
+get "/exhibits/manage/:id/edit" do
   @artists = Artist.all()
   @exhibit = Exhibit.find(params[:id])
   erb(:"exhibits/edit")
 end
 
 #update
-post "/exhibits/:id" do
+post "/exhibits/manage/:id" do
   exhibit = Exhibit.new(params)
   exhibit.update
-  redirect to "/exhibits/#{exhibit.id}"
+  redirect to "/exhibits/manage/#{exhibit.id}"
 end
 
 #delete
-post "/exhibits/:id/delete" do
+post "/exhibits/manage/:id/delete" do
   exhibit = Exhibit.find(params[:id])
   exhibit.delete()
   erb(:"exhibits/delete")

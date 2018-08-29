@@ -1,0 +1,20 @@
+<h1>Exhibits</h1>
+
+
+<p>
+  <% for exhibit in @exhibits %>
+  <a href="/exhibits/manage/<%= exhibit.id %>"><%= exhibit.title %></a>
+  <% end %>
+</p>
+
+
+
+<form class="filter_by" action="/exhibits/manage/category" method="get">
+  <label for="category-field">Filter by category</label>
+  <select name="category">
+    <% for exhibit in @exhibits %>
+    <option value="<%= exhibit.category %>"><%= exhibit.category %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Go"/>
+</form>
