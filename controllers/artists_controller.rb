@@ -4,10 +4,16 @@ require_relative("../models/artist.rb")
 also_reload("../models/*")
 
 
-#index
+#index for visitor
 get '/artists' do
   @artists = Artist.all()
   erb (:"artists/index")
+end
+
+#index for manager
+get '/artists/manage' do
+  @artists = Artist.all()
+  erb (:"artists/manage_index")
 end
 
 #new
@@ -15,10 +21,16 @@ get '/artists/new' do
   erb(:"artists/new")
 end
 
-#show
+#show for visitor
 get '/artists/:id' do
   @artist = Artist.find(params['id'].to_i)
   erb(:"artists/show")
+end
+
+#show for manager
+get '/artists/manage/:id' do
+  @artist = Artist.find(params['id'].to_i)
+  erb(:"artists/manage_show")
 end
 
 #create
@@ -28,26 +40,26 @@ post '/artists' do
   redirect to '/artists'
 end
 
-#edit
-get '/artists/:id/edit' do
+#edit for manager
+get '/artists/manage/:id/edit' do
   @artist = Artist.find(params[:id])
   erb(:"artists/edit")
 end
 
 #update
-post '/artists/:id' do
+post '/artists/manage/:id' do
   Artist.new(params).update
-  redirect to '/artists'
+  redirect to '/artists/manage'
 end
 
 #delete
 # if the gallery has exhibits by an artist, that artist cannot be deleted - redirect to their exhibits page
 # if there are no exhibits by this artist, allow to delete artist - redirect to artists page after deletion
-post '/artists/:id/delete' do
+post '/artists/manage/:id/delete' do
   artist = Artist.find(params[:id])
   if artist.exhibits.length == 0
   artist.delete()
   erb(:"artists/delete")
-  else redirect to '/artists'
+  else redirect to '/artists/manage'
   end
 end

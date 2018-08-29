@@ -1,0 +1,15 @@
+<h1><%= @artist.name %></h1>
+
+
+<h3>Exhibits:</h3>
+<ul>
+  <% @artist.exhibits.each do |exhibit| %>
+  <li><%= exhibit.title %></li>
+  <% end %>
+</ul>
+
+<p><a href="/artists/manage/<%= @artist.id %>/edit">Edit Artist</a></p>
+
+<form method="post" action="/artists/manage/<%= @artist.id %>/delete">
+  <input type="submit" value="Delete Artist"/>
+</form>
