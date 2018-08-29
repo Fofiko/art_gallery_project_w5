@@ -1,0 +1,8 @@
+body {
+  /* background: black url('/images/white_duck.jpg'); */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 100px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}

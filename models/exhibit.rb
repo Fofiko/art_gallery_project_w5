@@ -70,6 +70,15 @@ class Exhibit
     return result
   end
 
+  def self.find_by_artist(artist_id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [artist_id]
+    exhibits = SqlRunner.run(sql, values)
+    result = exhibits.map { |exhibit| Exhibit.new(exhibit) }
+    return result
+  end
+
+
   def self.delete_all
     sql = "DELETE FROM exhibits"
     SqlRunner.run(sql)

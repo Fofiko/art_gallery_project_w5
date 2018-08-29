@@ -23,7 +23,6 @@ get "/exhibits/category" do
   erb(:"exhibits/index")
 end
 
-
 #show
 get "/exhibits/:id" do
   @exhibit = Exhibit.find(params["id"].to_i)
