@@ -47,7 +47,7 @@ post '/artists/:id/delete' do
   artist = Artist.find(params[:id])
   if artist.exhibits.length == 0
   artist.delete()
-  else redirect to '/'
+  erb(:"artists/delete")
+  else redirect to '/artists'
   end
-  redirect to '/artists'
 end
