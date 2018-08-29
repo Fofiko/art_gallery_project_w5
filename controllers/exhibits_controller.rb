@@ -23,8 +23,14 @@ get "/exhibits/manage/new" do
   erb(:"exhibits/new")
 end
 
-#filter by category
+#filter by category visitor
 get "/exhibits/category" do
+  @exhibits = Exhibit.find_by_category(params[:category])
+  erb(:"exhibits/filter")
+end
+
+#filter by category manager
+get "/exhibits/manage/category" do
   @exhibits = Exhibit.find_by_category(params[:category])
   erb(:"exhibits/filter")
 end

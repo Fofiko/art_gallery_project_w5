@@ -1,0 +1,13 @@
+<h1>Exhibits from the
+
+  <% for exhibit in @exhibits %>
+  <%= exhibit.category %>
+  <% end %>
+category</h1>
+
+
+<p>
+  <% for exhibit in @exhibits %>
+  <a href="/exhibits/manage/<%= exhibit.id %>"><%= exhibit.title %></a>
+  <% end %>
+</p>
