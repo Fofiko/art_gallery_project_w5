@@ -20,7 +20,7 @@ end
 #filter by category
 get "/exhibits/category" do
   @exhibits = Exhibit.find_by_category(params[:category])
-  erb(:"exhibits/index")
+  erb(:"exhibits/filter")
 end
 
 #show
