@@ -17,8 +17,8 @@ get "/exhibits/manage" do
   erb (:"exhibits/manage_index")
 end
 
-#new
-get "/exhibits/new" do
+#new for manager
+get "/exhibits/manage/new" do
   @artists = Artist.all()
   erb(:"exhibits/new")
 end

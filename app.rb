@@ -11,6 +11,7 @@ get "/manager" do
   erb(:manager_index)
 end
 
+
 get "/visitor" do
   erb(:visitor_index)
 end
