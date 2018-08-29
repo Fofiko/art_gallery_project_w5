@@ -6,3 +6,7 @@ require_relative("controllers/exhibits_controller")
 get '/' do
   erb( :index )
 end
+
+get '/manager' do
+  erb( :manager_index )
+end

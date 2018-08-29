@@ -1,0 +1,35 @@
+.btn_visitor{
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.btn_visitor:hover {
+    background-color: grey;
+    color: black;
+    text-decoration: none;
+}
+
+.btn_manager{
+    padding-top: 20px;
+    border: 2px solid black;
+    background-color: black;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.btn_manager:hover {
+    background-color: grey;
+    color: black;
+    text-decoration: none;
+    border: 2px solid black;
+}
