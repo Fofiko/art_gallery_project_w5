@@ -54,5 +54,5 @@ end
 post "/exhibits/:id/delete" do
   exhibit = Exhibit.find(params[:id])
   exhibit.delete()
-  redirect to "/exhibits"
+  erb(:"exhibits/delete")
 end
