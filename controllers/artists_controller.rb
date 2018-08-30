@@ -17,7 +17,7 @@ get '/artists/manage' do
 end
 
 #new
-get '/artists/new' do
+get '/artists/manage/new' do
   erb(:"artists/new")
 end
 
@@ -34,10 +34,10 @@ get '/artists/manage/:id' do
 end
 
 #create
-post '/artists' do
+post '/artists/manage' do
   @artist = Artist.new(params)
   @artist.save
-  redirect to '/artists'
+  redirect to '/artists/manage'
 end
 
 #edit for manager
