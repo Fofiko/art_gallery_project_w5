@@ -1,7 +1,22 @@
 <h1>Artists</h1>
 
-<p>
-  <% for artist in @artists %>
-  <a href="/artists/manage/<%= artist.id %>"><%= artist.name %></a>
+
+<table class="edit_artists">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Action</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <% for artist in @artists %>
+    <td><%= artist.id %></td>
+    <td><%= artist.name %></td>
+    <td><a href="/artists/manage/<%= artist.id %>/edit">Edit</a></td>
+    <td>
+      <form method="post" action="/artists/manage/<%= artist.id %>/delete">
+      <input type="submit" value="Delete"/></form>
+    </td>
+  </tr>
   <% end %>
-</p>
+</table>
