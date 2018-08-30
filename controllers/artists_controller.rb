@@ -16,9 +16,9 @@ get '/artists/manage' do
   erb :"artists/manage_index", :layout => :layout_manager
 end
 
-#new
+#new for manager
 get '/artists/manage/new' do
-  erb(:"artists/new")
+  erb :"artists/new", :layout => :layout_manager
 end
 
 #show for visitor

@@ -49,10 +49,10 @@ get "/exhibits/manage/:id" do
 end
 
 #create
-post "/exhibits" do
+post "/exhibits/manage" do
   @exhibit = Exhibit.new(params)
   @exhibit.save
-  redirect to "/exhibits"
+  redirect to "/exhibits/manage"
 end
 
 #edit for manager
