@@ -13,7 +13,7 @@ end
 #index for manager
 get '/artists/manage' do
   @artists = Artist.all()
-  erb (:"artists/manage_index")
+  erb :"artists/manage_index", :layout => :layout_manager
 end
 
 #new
@@ -30,7 +30,7 @@ end
 #show for manager
 get '/artists/manage/:id' do
   @artist = Artist.find(params['id'].to_i)
-  erb(:"artists/manage_show")
+  erb :"artists/manage_show", :layout => :layout_manager
 end
 
 #create
@@ -43,7 +43,7 @@ end
 #edit for manager
 get '/artists/manage/:id/edit' do
   @artist = Artist.find(params[:id])
-  erb(:"artists/edit")
+  erb :"artists/edit", :layout => :layout_manager
 end
 
 #update
@@ -59,7 +59,7 @@ post '/artists/manage/:id/delete' do
   artist = Artist.find(params[:id])
   if artist.exhibits.length == 0
   artist.delete()
-  erb(:"artists/delete")
+  erb :"artists/delete", :layout => :layout_manager
   else redirect to '/artists/manage'
   end
 end
