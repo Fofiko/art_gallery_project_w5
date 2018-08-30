@@ -14,13 +14,14 @@ end
 #index for manager
 get "/exhibits/manage" do
   @exhibits = Exhibit.all()
-  erb (:"exhibits/manage_index")
+  erb :"exhibits/manage_index", :layout => :layout_manager
+
 end
 
 #new for manager
 get "/exhibits/manage/new" do
   @artists = Artist.all()
-  erb(:"exhibits/new")
+  erb :"exhibits/new", :layout => :layout_manager
 end
 
 #filter by category visitor
@@ -32,7 +33,7 @@ end
 #filter by category manager
 get "/exhibits/manage/category" do
   @exhibits = Exhibit.find_by_category(params[:category])
-  erb(:"exhibits/filter")
+  erb :"exhibits/filter", :layout => :layout_manager
 end
 
 #show for visitor
@@ -44,7 +45,7 @@ end
 #show for manager
 get "/exhibits/manage/:id" do
   @exhibit = Exhibit.find(params["id"].to_i)
-  erb(:"exhibits/manage_show")
+  erb :"exhibits/manage_show", :layout => :layout_manager
 end
 
 #create
@@ -58,7 +59,7 @@ end
 get "/exhibits/manage/:id/edit" do
   @artists = Artist.all()
   @exhibit = Exhibit.find(params[:id])
-  erb(:"exhibits/edit")
+  erb :"exhibits/edit", :layout => :layout_manager
 end
 
 #update
@@ -72,5 +73,5 @@ end
 post "/exhibits/manage/:id/delete" do
   exhibit = Exhibit.find(params[:id])
   exhibit.delete()
-  erb(:"exhibits/delete")
+  erb :"exhibits/delete", :layout => :layout_manager
 end
