@@ -1,12 +1,6 @@
 <h1>Exhibits</h1>
 
 
-<p>
-  <% for exhibit in @exhibits %>
-  <a href="/exhibits/manage/<%= exhibit.id %>"><%= exhibit.title %></a>
-  <% end %>
-</p>
-
 
 
 <form class="filter_by" action="/exhibits/manage/category" method="get">
@@ -18,3 +12,28 @@
   </select>
   <input type="submit" value="Go"/>
 </form>
+
+
+<table class="edit_table">
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Artist</th>
+    <th>Action</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <% for exhibit in @exhibits %>
+    <td><%= exhibit.id %></td>
+    <td><%= exhibit.title %></td>
+    <td><%= exhibit.category %></td>
+    <td><%= exhibit.artist.name %></td>
+    <td><a href="/exhibits/manage/<%= exhibit.id %>/edit">Edit</a></td>
+    <td>
+      <form method="post" action="/exhibits/manage/<%= exhibit.id %>/delete">
+      <input type="submit" value="Delete "/></form>
+    </td>
+  </tr>
+  <% end %>
+</table>

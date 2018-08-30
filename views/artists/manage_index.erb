@@ -1,7 +1,7 @@
 <h1>Artists</h1>
 
 
-<table class="edit_artists">
+<table class="edit_table">
   <tr>
     <th>ID</th>
     <th>Name</th>
@@ -15,7 +15,7 @@
     <td><a href="/artists/manage/<%= artist.id %>/edit">Edit</a></td>
     <td>
       <form method="post" action="/artists/manage/<%= artist.id %>/delete">
-      <input type="submit" value="Delete"/></form>
+      <input type="submit" value="Delete "/></form>
     </td>
   </tr>
   <% end %>
